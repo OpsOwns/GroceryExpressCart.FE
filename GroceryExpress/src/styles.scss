@@ -1,0 +1,15 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/bootswatch/dist/lumen/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', sans-serif;
+        background: white;
+        overflow: hidden;
+}
+.btn {    
+    text-transform: none !important;
+}
