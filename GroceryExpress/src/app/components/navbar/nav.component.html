@@ -12,7 +12,9 @@
     <div *ngIf="loggedIn()"  class="dropdown" dropdown>
       <a class="dropdown-toggle text-light" dropdownToggle>Witaj {{ authService.decodedToken?.unique_name | titlecase }}</a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item"><i class="fa fa-user"></i> Edituj Profil</a>
+        <a class="dropdown-item" [routerLink]="['/profile']"><i class="fa fa-user"></i> Edituj Profil</a>
+        <a class="dropdown-item" [routerLink]="['/admin-food-item']"><i class="fas fa-cart-plus"></i>Dodaj posiłek</a>
+        <a class="dropdown-item" [routerLink]="['/admin-food-list']"><i class="fas fa-cart-plus"></i>Lista posiłków</a>
         <div class="dropdown-item"></div>
         <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i> Wyloguj</a>
       </div>
