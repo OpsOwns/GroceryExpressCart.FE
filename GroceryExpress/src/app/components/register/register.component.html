@@ -1,18 +1,78 @@
-<form #registerForm="ngForm" (ngSubmit)="register()">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
   <h2 class="text-center text-primary">Zarejestruj się</h2>
-  <hr>
+  <hr />
 
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Username" required [(ngModel)]="model.username" name="username">
+    <input type="text" [ngClass]="{
+        'is-invalid':
+          registerForm.get('login').errors &&
+          registerForm.get('login').touched
+      }" class="form-control" formControlName="login" placeholder="Login" />
+    <div class="invalid-feedback">Proszę podać login</div>
   </div>
 
   <div class="form-group">
-    <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="model.password" name="password">
+    <input type="text" [ngClass]="{
+        'is-invalid':
+          registerForm.get('email').errors &&
+          registerForm.get('email').touched
+      }" class="form-control" formControlName="email" placeholder="E-mail" />
+    <div class="invalid-feedback">Proszę podać email</div>
+  </div>
+
+  <div class="form-group">
+    <input type="password" [ngClass]="{
+        'is-invalid':
+          registerForm.get('password').errors &&
+          registerForm.get('password').touched
+      }" class="form-control" formControlName="password" placeholder="Hasło" />
+    <div class="invalid-feedback" *ngIf="
+        registerForm.get('password').hasError('required') &&
+        registerForm.get('password').touched
+      ">
+      Hasło jest wymagane
+    </div>
+    <div class="invalid-feedback" *ngIf="
+        registerForm.get('password').hasError('minlength') &&
+        registerForm.get('password').touched
+      ">
+      Hasło musi zawierać co najmniej 8 znaków
+    </div>
+    <div class="invalid-feedback" *ngIf="
+        registerForm.get('password').hasError('maxlength') &&
+        registerForm.get('password').touched
+      ">
+      Hasło nie może przekroczyć 16 znaków
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{
+        'is-invalid':
+          (registerForm.get('confirmPassword').errors &&
+            registerForm.get('confirmPassword').touched) ||
+          (registerForm.get('confirmPassword').touched &&
+            registerForm.hasError('mismatch'))
+      }" type="password" class="form-control" formControlName="confirmPassword" placeholder="Powtórz hasło" />
+    <div class="invalid-feedback" *ngIf="
+        registerForm.get('confirmPassword').hasError('required') &&
+        registerForm.get('confirmPassword').touched
+      ">
+      Powtórzenie hasła jest wymagane
+    </div>
+    <div class="invalid-feedback" *ngIf="
+        registerForm.hasError('mismatch') &&
+        registerForm.get('confirmPassword').touched
+      ">
+      Hasła muszą się zgadzać
+    </div>
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success btn-lg mr-2" type="submit">Zarejestruj</button>
+    <button class="btn btn-success btn-lg" [disabled]="!registerForm.valid" type="submit">
+      Rejestracja
+    </button>
     <button class="btn btn-primary btn-lg" type="button" (click)="backToHome()">Powrót</button>
   </div>
-  
+
 </form>

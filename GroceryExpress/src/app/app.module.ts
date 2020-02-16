@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NavComponent } from './components/navbar/nav.component';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -22,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
