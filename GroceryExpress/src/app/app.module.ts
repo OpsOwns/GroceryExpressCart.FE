@@ -15,9 +15,12 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { LearnMoreComponent } from './components/learnMore/learnMore.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AdminFoodItemComponent } from './components/admin-food-item/admin-food-item.component';
+import { AdminFoodListComponent } from './components/admin-food-list/admin-food-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, FoodItemComponent, FoodListComponent,
-    LearnMoreComponent, FooterComponent],
+    LearnMoreComponent, FooterComponent, AdminFoodItemComponent, AdminFoodListComponent, ProfileComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
