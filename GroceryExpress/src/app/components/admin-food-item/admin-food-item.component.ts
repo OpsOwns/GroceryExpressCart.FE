@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DishService } from 'src/services/dish.service';
 import { Router } from '@angular/router';
 import { AlertifyService } from 'src/services/alertify.service';
@@ -12,25 +12,41 @@ import { Dish } from 'src/app/models/dish';
   styleUrls: ['./admin-food-item.component.css']
 })
 export class AdminFoodItemComponent implements OnInit {
-  productForm: FormGroup;
-  dish: Dish;
   constructor(
     private dishService: DishService,
     private router: Router,
     private alertify: AlertifyService,
     private fb: FormBuilder
   ) {}
+  productForm: FormGroup;
+  dish: Dish;
+  pricePattern = '/^d+.d{0,2}$/';
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createDishForm();
+  }
   createDishForm() {
-
+    this.productForm = this.fb.group({
+      meal: ['', Validators.required],
+      price: ['', Validators.required],
+      url: ['', Validators.required]
+    });
   }
   save() {
+    console.log(this.productForm.value);
     if (this.productForm.valid) {
       this.dish = Object.assign({}, this.productForm.value);
-      this.dishService.addDish(this.dish);
+      this.dishService.addDish(this.dish).subscribe(
+        () => {
+          this.alertify.success('doddano danie');
+          this.productForm.reset();
+        },
+        error => {
+          this.alertify.error(error);
+        }
+      );
+    } else {
+      this.alertify.error('Błąd danych');
     }
-
   }
-
 }
