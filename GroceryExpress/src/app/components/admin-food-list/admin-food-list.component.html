@@ -1,3 +1,19 @@
-<p>
-  admin-food-list works!
-</p>
+<div class="row" style="margin: 1rem;">
+  <button class="btn btn-success" [routerLink]="['/admin-food-item']">Utwórz nowy</button></div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Danie</th>
+      <th>Cena</th>
+      <th>Adres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dish of dishes">
+      <td>{{dish.meal}}</td>
+      <td>{{dish.price}} zł</td>
+      <td><a [routerLink]="['/admin-food-item/', dish.id]">Edytuj</a></td>
+      <td><button class="btn btn-danger" (click)="delete(dish.id)">Usuń</button></td>
+    </tr>
+  </tbody>
+</table>

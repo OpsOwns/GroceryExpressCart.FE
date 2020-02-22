@@ -17,10 +17,9 @@ import { LearnMoreComponent } from './components/learnMore/learnMore.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminFoodItemComponent } from './components/admin-food-item/admin-food-item.component';
 import { AdminFoodListComponent } from './components/admin-food-list/admin-food-list.component';
-import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, FoodItemComponent, FoodListComponent,
-    LearnMoreComponent, FooterComponent, AdminFoodItemComponent, AdminFoodListComponent, ProfileComponent],
+    LearnMoreComponent, FooterComponent, AdminFoodItemComponent, AdminFoodListComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -5,7 +5,6 @@ import { FoodListComponent } from './components/food-list/food-list.component';
 import { AuthGuard } from 'src/guards/authGuard';
 import { AdminFoodListComponent } from './components/admin-food-list/admin-food-list.component';
 import { AdminFoodItemComponent } from './components/admin-food-item/admin-food-item.component';
-import { ProfileComponent } from './components/profile/profile.component';
 
 export const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,9 +15,9 @@ export const appRoutes: Routes = [
     children: [
       { path: 'food', component: FoodItemComponent },
       { path: 'food-list', component: FoodListComponent },
-      { path: 'admin-food-list', component: AdminFoodListComponent },
       { path: 'admin-food-item', component: AdminFoodItemComponent },
-      { path: 'profile', component: ProfileComponent}
+      { path: 'admin-food-item/:id', component: AdminFoodItemComponent },
+      { path: 'admin-food-list', component: AdminFoodListComponent }
     ]
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }

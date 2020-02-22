@@ -20,4 +20,19 @@ export class DishService {
   addDish(dish: Dish): Observable<any> {
     return this.http.post(this.baseUrl + 'meal/create', dish, httpOptions);
   }
+
+  getDish(id: number): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'meal/get/' + id, httpOptions);
+  }
+
+  getDishes(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + 'meal/getMeals/0/0', httpOptions);
+  }
+
+  updateDish(id: number, dish: Dish): Observable<any> {
+    return this.http.put(this.baseUrl + 'meal/update/' + id, dish, httpOptions);
+  }
+  removeDish(mealId: number): Observable<any> {
+    return this.http.delete(this.baseUrl + 'meal/delete/' + mealId, httpOptions);
+  }
 }
