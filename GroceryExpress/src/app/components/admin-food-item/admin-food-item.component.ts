@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DishService } from 'src/services/dish.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/services/alertify.service';
 import { Dish } from 'src/app/models/dish';
-import { Dishes } from 'src/app/models/dishes';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'admin-food-item',
   templateUrl: './admin-food-item.component.html',
   styleUrls: ['./admin-food-item.component.css']

@@ -13,6 +13,7 @@ import { FoodItemComponent } from './components/food-item/food-item.component';
 import { FoodListComponent } from './components/food-list/food-list.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { LearnMoreComponent } from './components/learnMore/learnMore.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminFoodItemComponent } from './components/admin-food-item/admin-food-item.component';
@@ -27,6 +28,7 @@ import { AdminFoodListComponent } from './components/admin-food-list/admin-food-
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
+    NgxPaginationModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ErrorInterceptorProvider],
