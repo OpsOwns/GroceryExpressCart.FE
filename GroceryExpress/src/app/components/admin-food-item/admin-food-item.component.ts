@@ -5,10 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/services/alertify.service';
 import { Dish } from 'src/app/models/dish';
 import { Dishes } from 'src/app/models/dishes';
-// import 'rxjs/add/operator/take';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'admin-food-item',
   templateUrl: './admin-food-item.component.html',
   styleUrls: ['./admin-food-item.component.css']
@@ -21,17 +19,17 @@ export class AdminFoodItemComponent implements OnInit {
     private alertify: AlertifyService,
     private fb: FormBuilder
   ) {
-     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-     if (this.id) {
-  this.dishService.getDish(this.id).subscribe((dish: any) => {
-   this.productForm.patchValue({
-    price: dish.value.price,
-    meal: dish.value.meal,
-    url: dish.value.url
-   });
-   console.log(dish);
-  });
-  }
+    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    if (this.id) {
+      this.dishService.getDish(this.id).subscribe((dish: any) => {
+        this.productForm.patchValue({
+          price: dish.value.price,
+          meal: dish.value.meal,
+          url: dish.value.url
+        });
+        console.log(dish);
+      });
+    }
   }
   productForm: FormGroup;
   dish: Dish;
@@ -60,16 +58,16 @@ export class AdminFoodItemComponent implements OnInit {
           }
         );
       } else {
-      this.dishService.addDish(this.dish).subscribe(
-        () => {
-          this.alertify.success('zapisano');
-          this.productForm.reset();
-        },
-        error => {
-          this.alertify.error(error);
-        }
-      );
-    }
+        this.dishService.addDish(this.dish).subscribe(
+          () => {
+            this.alertify.success('zapisano');
+            this.productForm.reset();
+          },
+          error => {
+            this.alertify.error(error);
+          }
+        );
+      }
     } else {
       this.alertify.error('Błąd danych');
     }
