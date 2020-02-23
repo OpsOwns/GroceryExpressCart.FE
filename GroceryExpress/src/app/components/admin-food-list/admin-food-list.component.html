@@ -1,19 +1,22 @@
 <div class="row" style="margin: 1rem;">
-  <button class="btn btn-success" [routerLink]="['/admin-food-item']">Utwórz nowy</button></div>
-<table class="table table-hover">
+  <button class="btn btn-primary btn-md" [routerLink]="['/admin-food-item']">Dodaj nowy</button>
+  <hr>
+<table class="table-dishes table table-hover table-borderless">
   <thead>
-    <tr>
+    <tr style="border-bottom: 1px solid #ccc; width: 100%;">
       <th>Danie</th>
       <th>Cena</th>
-      <th>Adres</th>
+      <th>Szczegóły</th>
+      <th>Kasowanie</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dish of dishes">
       <td>{{dish.meal}}</td>
-      <td>{{dish.price}} zł</td>
+      <td>{{dish.price | currency:'':''}} zł</td>
       <td><a [routerLink]="['/admin-food-item/', dish.id]">Edytuj</a></td>
       <td><button class="btn btn-danger" (click)="delete(dish.id)">Usuń</button></td>
     </tr>
   </tbody>
 </table>
+</div>

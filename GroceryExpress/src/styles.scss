@@ -3,12 +3,15 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 body { margin: 0; font-family: 'Montserrat', sans-serif;
         background: white;
         overflow-x: hidden;
 }
+html {
+    position: relative;
+    min-height: 100%;
+  }
 .btn {    
     text-transform: none !important;
 }
