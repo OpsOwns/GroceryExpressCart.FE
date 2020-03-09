@@ -36,7 +36,6 @@ export class AdminFoodListComponent implements OnInit {
         case 'meal': return this.compare(a.meal, b.meal, this.sortAsc === false ? true : false);
         case 'price': return this.compare(a.price, b.price, this.sortAsc === false ? true : false);
       }
-
     });
     this.sortAsc = this.switchButton(this.sortAsc);
   }

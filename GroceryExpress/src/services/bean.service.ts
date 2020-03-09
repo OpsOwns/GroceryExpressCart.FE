@@ -6,7 +6,7 @@ import { Bean } from 'src/app/models/Bean';
 })
 export class BeanService {
 
-  beanArry: Bean[];
+  beanArry: Bean[] = [];
   constructor() { }
 
   getBean(): Bean[] {

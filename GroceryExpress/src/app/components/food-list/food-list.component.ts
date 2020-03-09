@@ -25,7 +25,7 @@ export class FoodListComponent implements OnInit {
   }
 
   addToBean(dish: Dish) {
-    let bean: Bean;
+    const bean = new Bean();
     bean.id = dish.id;
     bean.name = dish.meal;
     bean.price = dish.price;
