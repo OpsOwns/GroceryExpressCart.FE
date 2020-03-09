@@ -25,6 +25,10 @@ export class BeanService {
     localStorage.removeItem('bean');
   }
 
+  getCount() {
+    return this.getBean().length;
+  }
+
   removeBeanItem(id: number) {
     this.getBean();
     this.beanArry = this.beanArry.filter(x => x.id !== id);
