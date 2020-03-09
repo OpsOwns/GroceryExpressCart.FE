@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ErrorInterceptorProvider } from './errorHandler/error.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { FoodItemComponent } from './components/food-item/food-item.component';
 import { FoodListComponent } from './components/food-list/food-list.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
@@ -19,7 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminFoodItemComponent } from './components/admin-food-item/admin-food-item.component';
 import { AdminFoodListComponent } from './components/admin-food-list/admin-food-list.component';
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, FoodItemComponent, FoodListComponent,
+  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, FoodListComponent,
     LearnMoreComponent, FooterComponent, AdminFoodItemComponent, AdminFoodListComponent],
   imports: [
     BrowserModule,

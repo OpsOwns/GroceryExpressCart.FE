@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DishService } from 'src/services/dish.service';
+import { Value, Dishes } from 'src/app/models/dishes';
+import { BeanService } from 'src/services/bean.service';
+import { Dish } from 'src/app/models/dish';
+import { Bean } from 'src/app/models/Bean';
 
 @Component({
   selector: 'app-food-list',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodListComponent implements OnInit {
 
-  constructor() { }
+  dishes: Value[];
+  constructor(private dishService: DishService, private beanService: BeanService) { }
 
   ngOnInit() {
+    this.dishService.getDishes().subscribe(
+      (dish: Dishes) => {
+        this.dishes = dish.value;
+      },
+      error => console.log(error)
+    );
   }
 
+  addToBean(dish: Dish) {
+    let bean: Bean;
+    bean.id = dish.id;
+    bean.name = dish.meal;
+    bean.price = dish.price;
+    this.beanService.addBean(bean);
+  }
 }

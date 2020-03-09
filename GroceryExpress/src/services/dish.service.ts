@@ -26,7 +26,7 @@ export class DishService {
   }
 
   getDishes(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + 'meal/getMeals/0/0', httpOptions);
+    return this.http.get<any>(this.baseUrl + 'meal/Meals', httpOptions);
   }
 
   updateDish(id: number, dish: Dish): Observable<any> {

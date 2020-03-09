@@ -1,1 +1,17 @@
-<h1>In progress...</h1>
+<div class="row">
+    <ng-container *ngFor="let dish of dishes">
+      <div class="col">
+        <div  class="w-100">
+          <div class="card"  style="width: 15rem;">
+            <img src="{{dish.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{dish.meal}}</h5>
+              <p class="card-text">{{dish.price}}</p>
+              <a href="#" class="btn btn-primary" (click)="addToBean(dish)">Dodaj do koszyka</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  
