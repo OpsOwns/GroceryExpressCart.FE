@@ -1,0 +1,19 @@
+<div class="row" style="margin: 1rem;">
+  <table class="table-dishes table table-hover table-borderless">
+    <thead>
+      <th>Nazwa</th>
+      <th>Cena</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of basket">
+        <td>{{b.name}}</td>
+        <td>{{b.price | currency:'':''}} zł</td>
+        <td><button class="btn btn-danger" (click)="delete(b.id)">Usuń</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  <button class="btn btn-lg btn-success">Zamawiam</button>
+  <p *ngIf="totalCost > 0" class="text-black" style="text-align: center;">koszta razem <strong>{{totalCost}} zł</strong></p>
+</div>
+</div>

@@ -1,6 +1,6 @@
 <div class="row">
-    <ng-container *ngFor="let dish of dishes">
-      <div class="col">
+    <ng-container>
+      <div class="col" *ngFor="let dish of (dishes | async)?.value">
         <div  class="w-100">
           <div class="card"  style="width: 15rem;">
             <img src="{{dish.url}}" class="card-img-top" alt="...">

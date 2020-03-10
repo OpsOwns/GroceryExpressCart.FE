@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Dish } from 'src/app/models/dish';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { Dishes } from 'src/app/models/dishes';
 
 export const httpOptions = {
   headers: new HttpHeaders({
@@ -25,8 +26,8 @@ export class DishService {
     return this.http.get<any>(this.baseUrl + 'meal/get/' + id, httpOptions);
   }
 
-  getDishes(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + 'meal/Meals', httpOptions);
+  getDishes(): Observable<Dishes> {
+    return this.http.get<Dishes>(this.baseUrl + 'meal/Meals', httpOptions);
   }
 
   updateDish(id: number, dish: Dish): Observable<any> {
